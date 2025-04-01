@@ -106,8 +106,14 @@ void remove_vertex(int Vno)
 		{
 			for(j=0; j <= Total_Vertices - 1; j++)
 			{
+			}
+		}
+
+		for(i=Vno; i <= Total_Vertices - 2; i++)
+		{
+			for(j=0; j <= Total_Vertices - 1; j++)
+			{
 				arr[i][j] = arr[i + 1][j];
-				arr[j][i] = arr[j][i + 1];
 			}
 		}
 		
