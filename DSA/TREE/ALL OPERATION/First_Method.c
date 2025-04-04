@@ -52,13 +52,17 @@ anil:
 			postfix(root);
 			goto anil;
 		case 5:
-			printf("\nEnter Search number : ");
-			scanf("%d",&no);
 			if(root==NULL)
-			   printf("\ntree is empty.....");
+			{
+			    printf("\ntree is empty.....");
+			}
 			else
-	           minmax(root,root);
-		   	   search(root,no,root,min,max);
+			{
+			    printf("\nEnter Search number : ");
+			    scanf("%d",&no);
+	                    minmax(root,root);
+		   	    search(root,no,root,min,max);
+			}
 			goto anil;
 		case 6:
 			printf("\nEnter Delete number : ");
