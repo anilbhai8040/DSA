@@ -65,9 +65,16 @@ anil:
 			}
 			goto anil;
 		case 6:
-			printf("\nEnter Delete number : ");
-			scanf("%d",&no);
-			root=delete_node(root,no);
+			if(root==NULL)
+			{
+			    printf("\ntree is empty.....");
+			}
+			else
+			{
+				printf("\nEnter Delete number : ");
+				scanf("%d",&no);
+				root=delete_node(root,no);
+			}
 			goto anil;
 		case 7:
 			goto baraiya;
@@ -286,15 +293,8 @@ node *delete_node(node *ptr,int no1)
 	char ch;
 	if(ptr==NULL)
 	{
-		if(root == NULL)
-		{
-			printf("\nTree is Empty.....\n");
-		}
-		else
-		{
-			printf("search is unsucess......");
-			return 0;
-		}
+		printf("search is unsucess......");
+		return 0;
 	}
 	else if(no1 < ptr->no)       // search no is less than ptr->no
 	{
