@@ -10,7 +10,7 @@ struct abc
 typedef struct abc node;
 int min=0,max=0;
 void input();
-void search(node *,int,node *,int,int);
+void search(node *,int,int,int);
 node *insert(node *,int);
 node *delete_node(node *,int);
 node *minnode(node *);
@@ -60,8 +60,8 @@ anil:
 			{
 			    printf("\nEnter Search number : ");
 			    scanf("%d",&no);
-	                    minmax(root,root);
-		   	    search(root,no,root,min,max);
+	            minmax(root,root);
+		   	    search(root,no,min,max);
 			}
 			goto anil;
 		case 6:
@@ -139,7 +139,7 @@ void prefix(node *ptr)
 	prefix(ptr->left);
 	prefix(ptr->right);
 }
-void search(node *ptr,int sno,node *temp,int min,int max)
+void search(node *ptr,int sno,int min,int max)
 {
 	int no;
 	char ch;
@@ -150,27 +150,13 @@ void search(node *ptr,int sno,node *temp,int min,int max)
 	}
 	else if(sno < ptr->no)
 	{
-		if(ptr->no < sno)
-		{
-			min=ptr->no;
-		}
-		else
-		{
-			max=ptr->no;
-		}
-		search(ptr->left,sno,ptr,min,max);
+		max=ptr->no;
+		search(ptr->left,sno,min,max);
 	}
 	else if(sno > ptr->no)
 	{
-		if(ptr->no < sno)
-		{
-			min=ptr->no;
-		}
-		else
-		{
-			max=ptr->no;
-		}
-		search(ptr->right,sno,ptr,min,max);
+		min=ptr->no;
+		search(ptr->right,sno,min,max);
 	}
 	else if(sno == ptr->no)
 	{
