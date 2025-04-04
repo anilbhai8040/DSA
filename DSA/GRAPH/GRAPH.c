@@ -89,7 +89,7 @@ void insert_edge(int start,int end)
 	{
 		arr[start][end] = 1;
 		arr[end][start] = 1;
-		printf("\Edge added between %d and %d.....\n",start,end);
+		printf("\nEdge added between %d and %d.....\n",start,end);
 	}
 	else
 	{
@@ -106,15 +106,14 @@ void remove_vertex(int Vno)
 		{
 			for(j=0; j <= Total_Vertices - 1; j++)
 			{
-				arr[j][i] = arr[j][i+1];
+				arr[i][j] = arr[i + 1][j];
 			}
 		}
-
 		for(i=Vno; i <= Total_Vertices - 2; i++)
 		{
 			for(j=0; j <= Total_Vertices - 1; j++)
 			{
-				arr[i][j] = arr[i + 1][j];
+				arr[j][i] = arr[j][i + 1];
 			}
 		}
 		
@@ -138,7 +137,7 @@ void remove_edge(int start,int end)
 	{
 		arr[start][end] = 0;
 		arr[end][start] = 0;
-		printf("\Edge removed between %d and %d.....\n",start,end);
+		printf("\\nEdge removed between %d and %d.....\n",start,end);
 	}
 	else
 	{
@@ -155,20 +154,26 @@ void display()
 	}
 	else
 	{   
-	    if(Total_Vertices >= 10)
+	    if(Total_Vertices >= 11)
     		printf("  ");
     	else
-    	    printf(" ");
+    	    printf("   ");
 		for(i = 0; i <= Total_Vertices - 1; i++)
 		{
-			printf(" %d",i);
+			if(Total_Vertices >= 11)
+    		    printf("  %d",i);
+         	else
+			    printf(" %d ",i);
 		}
 		for(i = 0; i <= Total_Vertices - 1; i++)
 		{
 			printf("\n%2d ",i);
 			for(j = 0; j <= Total_Vertices - 1; j++)
 			{
-				printf("%d ",arr[i][j]);
+				if(j>=11)
+				    printf("  %d ",arr[i][j]);
+				else
+				    printf(" %d ",arr[i][j]);
 			}
 		}
 	}
